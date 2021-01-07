@@ -1,4 +1,4 @@
-const http = require('http'); // va générer à chaque appel le package http de node
+const http = require('http'); // va générer à chaque appel le package https de node
 const app = require('./app');  // va aller chercher le fichier app.js dans lequel on exporte le module app généré par express
 
 const normalizePort = val => { // renvoie un port valide, qu'il soit fourni sous la forme d'un numéro ou d'une chaîne
@@ -12,7 +12,8 @@ const normalizePort = val => { // renvoie un port valide, qu'il soit fourni sous
   }
   return false;
 };
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000'); // à vérifier
+
 app.set('port', port);
 
 const errorHandler = error => { //recherche les différentes erreurs et les gère de manière appropriée. Elle est ensuite enregistrée dans le serveur
